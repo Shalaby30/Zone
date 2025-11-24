@@ -260,6 +260,7 @@
                 </div>
                 <div class="button-group">
                     <button id="addBtn" class="btn-add">إضافة</button>
+
                 </div>
             </div>
             <div class="search-box">
@@ -292,7 +293,7 @@
             const zoneInput = document.getElementById('zone');
             const markInput = document.getElementById('mark');
             const addBtn = document.getElementById('addBtn');
-
+            const clearBtn = document.getElementById('clearBtn');
             const searchInput = document.getElementById('searchInput');
             const searchResultsList = document.getElementById('searchResultsList');
             const searchResultsDiv = document.getElementById('searchResults');
@@ -332,6 +333,9 @@
                 if (!error) { clearForm(); loadItems(); showNotification('تم الإضافة ✓'); }
             });
 
+            // مسح الفورم
+            clearBtn.addEventListener('click', clearForm);
+            function clearForm() { zoneInput.value = ''; markInput.value = ''; zoneInput.focus(); }
 
             // حذف عنصر
             searchResultsList.addEventListener('click', async (e) => {
